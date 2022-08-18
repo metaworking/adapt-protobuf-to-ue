@@ -64,7 +64,7 @@ fs.copy(sourceCodeDir, resultDir, {
             (src.includes("test") && !src.includes("bytestream")) || // ignore test file
             src.endsWith("bytestream_unittest.cc") ||
             src.includes("json_format_proto3.pb") ||
-            src.endsWith(".proto") || // ignore proto file
+            (src.endsWith(".proto") && !src.endsWith("any.proto")) || // ignore proto file
             src.endsWith("compiler") || // ignore code for compiler
             false
         ) {
